@@ -1,10 +1,26 @@
+body {
+  animation: fade 0.2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 header {
-  animation: shadowIn 1s ease-in both;
+  animation: shadow 1s ease-in both;
   animation-timeline: scroll();
   animation-range: entry 0% cover 50%;
 }
 
-@keyframes shadowIn {
+@keyframes shadow {
   0%, 10%{
     box-shadow: 0px 0px 0px darkslategray;
   }
@@ -19,12 +35,12 @@ header {
 }
 
 #welcome-section h1 {
-  animation: reveal 2s 1s linear forwards;
+  animation: reveal .5s .3s linear forwards;
   clip-path: circle(0% at 10% 10%);
 }
 
-#welcome-section p {
-  animation: reveal 2s 1.7s infinite alternate;
+#welcome-section > p {
+  animation: reveal 3s .5s infinite alternate;
   clip-path: circle(0%);
 }
 
@@ -32,6 +48,23 @@ header {
   to {
     clip-path: circle(80%);
   }
+}
+
+#education, #interest, #skills {
+  animation: fadeIn both;
+  animation-timeline: scroll();
+}
+
+#education {
+  animation-range: entry 0% contain 5%;
+}
+
+#interest {
+  animation-range: entry 6% cover 10%;
+}
+
+#skills {
+  animation-range: entry 10% cover 15%;
 }
 
 #social-media a:hover {
