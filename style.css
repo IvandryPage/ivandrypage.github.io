@@ -1,0 +1,211 @@
+:root {
+    /* CSS Variables */
+    --primary-100-color: #e3e221;
+    --primary-200-color: #BAB919;
+    --secondary-300-color: #B896F9;
+    --secondary-400-color: #9D61F6;
+    --secondary-500-color: #8121E3;
+    --grey-0-color: #F3EEFE;
+    --grey-100-color: #DBDBD5;
+    --grey-300-color: #8D8D89;
+    --grey-600-color: #272726;
+    --grey-700-color: #111110;
+}
+
+* { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--grey-700-color);
+    color: var(--grey-0-color);
+    overflow-x: hidden;
+    height: auto;
+    font-family: 'Poppins', Verdana, sans-serif;
+    letter-spacing: -0.2px;
+}
+
+h1, h2 { font-family: 'Young Serif', serif; }
+
+a { text-decoration: none; }
+
+section {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+}
+
+header {
+    display: none;
+}
+
+.blurry-text {
+    color: transparent;
+    text-shadow: 0 0 4px  rgba(243, 238, 254, 1);
+}
+
+#profile {
+    display: grid;
+    align-content: center;
+}
+
+#name {
+    color: var(--primary-100-color);
+    text-shadow: -6px 0 3px var(--primary-200-color);
+}
+.game-dev {
+    color: var(--secondary-500-color);
+}
+
+.front-end {
+    color: var(--secondary-400-color);
+}
+
+#profile {
+    text-transform: uppercase;
+}
+
+.content {
+    width: 40vw;
+    padding: 0 3vw;
+}
+
+#profile > .content h1 {
+    font-size: 4rem;
+}
+
+#profile > .content h2 {
+    width: 38vw;
+    line-height: 24pt;
+    font-family: 'Poppins', Verdana, sans-serif;
+    font-weight: 300;
+    font-size: 2rem;
+}
+
+#profile > div p {
+    font-size: 1.2rem;
+}
+
+#personal-background > .content {
+    grid-column: 2;
+    padding: 10vh 3vw;
+}
+
+#personal-background > .content h2, #projects > .content h2 {
+    padding-left: 0;
+    text-shadow: -2px 2px 2px var(--grey-0-color);
+    text-transform: uppercase;
+    margin-top: 4rem;
+}
+
+#personal-background > .content > p, #personal-background > .content > * {
+    padding-left: 5vh;
+    margin: 1vh 0 1vh 0;
+    text-align: justify;
+}
+
+#personal-background > .content ul li p:nth-child(1) { 
+    font-weight: 600;
+}
+
+#tech-stack {
+    width: 20vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-items: flex-start;
+}
+
+footer > .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--grey-600-color);
+    border-radius: 50px;
+    position: fixed;
+    bottom: 1vh;
+    right: 1vw;
+    padding: 10px 0 10px 0;
+}
+
+.icon img {
+    width: 3rem;
+    height: 3rem;
+    padding: 2px;
+}
+
+#projects h2 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-left: 8vw;
+    width: 15vw;
+    margin-bottom: 5vh;
+}
+
+.card-wrap:hover {
+    filter: drop-shadow(-3px 10px 10px var(--primary-100-color));
+}
+
+.card {
+    width: 675px;
+    height: 235px;
+    background-color: var(--grey-600-color);
+    clip-path: inset(0);
+    clip-path: path('M0 0 75 0Q90 0 97.5 14.4 108.75 43.2 120 43.2L180 43.2Q195 43.2 202.5 28.8 213.75 0 225 0L660 0Q671.25 0 675 14.4L675 172.8Q671.25 187.2 660 187.2L225 187.2Q213.75 187.2 202.5 216 191.25 230.4 180 230.4L120 230.4Q108.75 230.4 97.5 201.6 90 187.2 75 187.2L15 187.2Q3.75 187.2 0 172.8L0 14.4Q3.75 0 15 0Z');
+    padding: 8% 5%;
+    display: grid;
+    grid-template-columns: 225px 1fr;
+}
+
+.card:hover {
+    transform-origin: 0% 50%;
+    transform: scaleX(1.05);
+    transition: transform 200ms;
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+    align-self: center;
+    justify-self: center;
+}
+
+.card-detail {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 2fr 1fr;
+}
+
+.card-detail > h3 {
+    grid-row: 2;
+}
+
+.card-detail .desc {
+    grid-column: 1 / 2;
+    grid-row: 1;
+}
+
+.card-detail .inspect-button {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: center;
+    display: grid;
+    transform:scale(0);
+}
+
+.card:hover .inspect-button{
+    transform:scale(1);
+    transition: transform 200ms;
+}
+
+.inspect-button a {
+    color: var(--grey-0-color);
+    background-color: var(--secondary-500-color);
+    border-radius: 50px;
+    box-shadow: 2px -2px 5px var(--secondary-400-color);
+    width: 100%;
+    height: 2rem;
+}
