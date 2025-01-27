@@ -37,14 +37,30 @@ a {
 }
 
 /* Layout and Sections */
-section {
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 50vw 50vw;
-}
 
 header {
     display: none;
+}
+
+.layer-section {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 20px;
+    z-index: 1;
+    transition: background-color 0.3s ease;
+    display: flex;
+}
+
+.blur-item {
+    width: 50vw;
+    backdrop-filter: blur(3px);
+    z-index: -1;
+}
+
+.content {
+    background-color:  var(--grey-700-color);
+    width: 50vw;
 }
 
 /* Profile Section */
@@ -52,6 +68,7 @@ header {
     display: grid;
     align-content: center;
     text-transform: uppercase;
+    z-index: 1;
 }
 
 #profile .content {
@@ -91,9 +108,11 @@ header {
 }
 
 /* Personal Background */
+#personal-background { z-index: 2; }
 #personal-background .content {
     grid-column: 2;
     padding: 10vh 3vw;
+    border-left: 2px solid var(--grey-600-color); 
 }
 
 #personal-background h2, #projects h2 {
@@ -116,6 +135,7 @@ header {
 /* Tech Stack */
 #tech-stack {
     width: 20vw;
+    z-index: 3;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -126,6 +146,7 @@ header {
 }
 
 /* Projects Section */
+#projects { z-index: 3;}
 #projects h2 {
     text-align: center;
     font-size: 1.6rem;
@@ -154,7 +175,6 @@ header {
 .card a  {
     display: grid;
     grid-template-columns: 225px 1fr;
-    padding: 2rem 0;
 }
 
 .card img {
@@ -185,21 +205,48 @@ footer .container {
     bottom: 1vh;
     right: 1vw;
     padding: 10px;
+    z-index: 999;
 }
 
+.icon {padding: 2px;}
 .icon img {
     width: 3rem;
     height: 3rem;
     margin: 2px;
 }
 
+.icon:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transform: translate(0, -10%);
+    box-shadow: 1px 1px 10px #ffffff;
+    border-radius: 50%;
+    transition: all 0.125s ease-in-out;
+}
+
 /* Responsive Design */
+@media screen and (max-width: 1366px) {
+    .blur-item {
+        background-color: var(--grey-700-color);
+        backdrop-filter: unset;
+    }
+}
+
 @media screen and (max-width: 600px) {
     /* General Layout */
-    section {
+    .layer-section {
         display: block;
         height: auto;
         padding: 5vh 3vw;
+        position: unset;
+    }
+
+    .blur-item {
+        display:none;
+    }
+
+    .content {
+        width: auto;
     }
 
     /* Profile Section */
@@ -232,6 +279,7 @@ footer .container {
     #personal-background .content {
         grid-column: unset;
         padding: 5vh 3vw;
+        border: none;
     }
 
     #personal-background h2 {
@@ -259,7 +307,9 @@ footer .container {
     /* Projects Section */
     #projects h2 {
         font-size: 1.5rem;
+        width: 100%;
         margin: 2rem 0;
+        text-align: center;
     }
 
     .card {
@@ -268,6 +318,7 @@ footer .container {
     }
 
     .card a {
+        grid-template-columns: 100px 1fr;
         padding: 0.5rem 0;
     }
 
