@@ -330,7 +330,7 @@ footer .container {
     header {
         display: none;
     }
-    
+
     /* Profile Section */
     #profile {
         display: block;
@@ -351,10 +351,14 @@ footer .container {
         width: 100%;
         font-size: 1.5rem;
         line-height: 1.8;
+        text-align: left;
     }
 
     #profile p {
         font-size: 1rem;
+        width: 80vw;
+        text-wrap: wrap;
+        text-align: left;
     }
 
     /* Personal Background Section */
