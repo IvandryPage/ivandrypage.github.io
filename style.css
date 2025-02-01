@@ -327,6 +327,10 @@ footer .container {
         width: auto;
     }
 
+    header {
+        display: none;
+    }
+    
     /* Profile Section */
     #profile {
         display: block;
